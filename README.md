@@ -29,6 +29,7 @@ AERONET Dataset: Provides AOD measurements from various global locations, proces
 | results |
 |------------------|
 |![results](assets/assets1.png) |
+|![results](assets/assets2.png) |
 
 ## Getting Started
 
