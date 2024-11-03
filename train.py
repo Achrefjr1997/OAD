@@ -177,7 +177,7 @@ def main(args):
         
             val_metric = total_metric / len(valid_dl)
             
-            print(f'val_loss: {val_metric:.6f}')
+            print(f'val metric: {val_metric:.6f}')
 
             if val_metric > best_metric:
                 es_step = 0
