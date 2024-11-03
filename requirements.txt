@@ -11,3 +11,4 @@ tqdm==4.66.6
 opencv-python
 Pillow==11.0.0
 requests==2.32.3
+wandb
