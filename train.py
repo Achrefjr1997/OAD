@@ -12,6 +12,7 @@ import torch.nn as nn
 from tqdm import tqdm
 import math, random
 from collections import OrderedDict
+import wandb
 def get_args_parser(add_help=True):
     parser = argparse.ArgumentParser(description="OAD Training", add_help=add_help)
 
@@ -44,7 +45,7 @@ def main(args):
     lr=args.lr
     WD = 1e-2
     print(f"Preparing data with ACP3C={usePCA}, include_index={useIndexes} ..........................")
-    prepare_data.prepare_data(ACP3C=False, include_index=False)
+    # prepare_data.prepare_data(ACP3C=False, include_index=False)
     print(f"data prepared" )
 
     os.makedirs(output, exist_ok=True)
@@ -65,6 +66,15 @@ def main(args):
     N_WORKERS = os.cpu_count() 
     skf = KFold(n_splits=Folder, shuffle=True)
     for fold, (trn_idx, val_idx) in enumerate(skf.split(range(len(train_data)))):
+        wandb.init(
+            project="EODf2",  # Name of the project in Weights & Biases
+            name=f"ViT {Folder} folders 50 {epochs} folder {fold}",  # Custom name for this specific run
+            config={
+                "epochs": epochs,           # Number of training epochs
+                "batch_size": batch_size,   # Batch size for training
+                "learning_rate": lr,        # Learning rate for the optimizer
+              }
+        )
         print(len(train_data), len(test_data))
         train_ds= OaDataset(root="Processed", df=train_data, imsz=(224, 224),transform=transformer(0.95))
         valid_ds= OaDataset(root="Processed", df=train_data, imsz=(224, 224),transform=None)
@@ -154,7 +164,12 @@ def main(args):
             train_loss = total_loss / len(train_dl)
             train_metric = total_metric / len(train_dl)  # Average metric over all batches
             print(f'train_loss: {train_loss:.6f}, train_metric: {train_metric:.6f}')
-    
+            # Log training metrics to WandB
+            wandb.log({
+                "Train Loss": train_loss,
+                "Train Metric": train_metric,
+                "Learning Rate": optimizer.param_groups[0]["lr"]
+            }, step=epoch)
             # Check if current training metric is the best
             if train_metric > best_train_metric:
                 best_train_metric = train_metric
@@ -162,6 +177,7 @@ def main(args):
                 
                 fname= f'{output}/best_train_model_fold-{fold}.pt'
                 torch.save(model.state_dict(), fname)
+                wandb.save(fname)
 
             # Validation
             total_metric = 0
@@ -177,7 +193,11 @@ def main(args):
         
             val_metric = total_metric / len(valid_dl)
             
-            print(f'val metric: {val_metric:.6f}')
+            print(f'val_loss: {val_metric:.6f}')
+
+            wandb.log({
+                "Validation Metric": val_metric
+            }, step=epoch)
 
             if val_metric > best_metric:
                 es_step = 0
@@ -189,7 +209,8 @@ def main(args):
                 best_metric = val_metric
                 fname = f'{output}/best_wll_model_fold-{fold}.pt'
                 torch.save(model.state_dict(), fname)
-                
+                # Log the best model to WandB
+                wandb.save(fname)
                 if device != 'cuda:0':
                     model.to(device)
                 
@@ -198,6 +219,7 @@ def main(args):
                 if es_step >= earlystop:
                     print('Early stopping')
                     break
+        wandb.finish()
 
 
 
