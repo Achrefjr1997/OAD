@@ -4,6 +4,7 @@ import cv2
 import pandas as pd
 from sklearn.decomposition import PCA
 import tifffile as tiff
+from .download import download_files
 # Define band information based on the provided table
 bands_info = {
     "B1": {"description": "Aerosols", "wavelength": "443.9nm (S2A) / 442.3nm (S2B)"},
@@ -76,14 +77,14 @@ def process_images(image_folder, output_folder, ACP3C=True, include_index=False)
                 processed_image = calculate_indices(image)
             else:
                 processed_image = image  # No processing
-            processed_image=np.transpose(processed_image, (2, 0, 1))
-
+            
             # Save the processed image
             output_path = os.path.join(output_folder, filename)
             tiff.imwrite(output_path, processed_image.astype(np.float32))
 
 def prepare_data(ACP3C=False, include_index=False):
     # Process the training images
+    download_files()
     process_images('Dataset/train_images', 'Processed/train_images', ACP3C=ACP3C, include_index=include_index)
     # Process the test images
     process_images('Dataset/test_images', 'Processed/test_images', ACP3C=ACP3C, include_index=include_index)

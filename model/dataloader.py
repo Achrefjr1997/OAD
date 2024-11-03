@@ -65,7 +65,7 @@ class OaDataset(Dataset):
 
     def __getitem__(self, idx):
         t = self.df.iloc[idx]
-        img_path = f'{self.root}train_images/{t["File_Name"]}'
+        img_path = f'{self.root}/train_images/{t["File_Name"]}'
         image = normalize_sentinel2_image(img_path)
 
         image = cv2.resize(image, self.imsz)
@@ -92,7 +92,8 @@ class OaDPrediction(Dataset):
             transform (callable, optional): Optional transform to be applied on a sample.
         """
         self.img_dir = img_dir
-        self.transform = transfor
+        self.imsz = imsz
+        self.transform = transform
         # Get a list of all image files in the directory
         self.img_files = [f for f in os.listdir(self.img_dir) if os.path.isfile(os.path.join(self.img_dir, f))]
     

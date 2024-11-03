@@ -7,8 +7,8 @@ and various spectral indices.
 """
 
 # Import necessary functions or classes
-from .dataloader import transformer,OaDataset,list_checkpoints
-from .model import OADModel,OaDPrediction
+from .dataloader import transformer,OaDataset,list_checkpoints,OaDPrediction
+from .model import OADModel
 __all__ = [
     'transformer',
     'OaDataset',

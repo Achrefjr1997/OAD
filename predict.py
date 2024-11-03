@@ -12,7 +12,7 @@ from tqdm import tqdm
 def get_args_parser(add_help=True):
     parser = argparse.ArgumentParser(description="OAD Training", add_help=add_help)
 
-    parser.add_argument("--data-path", default="/Dataset/test_images", type=str, help="dataset path")
+    parser.add_argument("--data-path", default="Dataset/test_images", type=str, help="dataset path")
     parser.add_argument("--device", default="cpu", type=str, help="device (Use cuda or cpu Default: cuda)")
     parser.add_argument("-b", "--batch-size", default=1, type=int, help="images per gpu, the total batch size is $NGPU x batch_size")
     parser.add_argument("--models", default="OADmodels", type=str, metavar="N", help="models folder")
@@ -53,7 +53,7 @@ def main(args):
         predictions = []
         i=i+1
         # Iterate through the dataloader
-        with tqdm(tmp_dl, leave=True) as pbar:
+        with tqdm(dl, leave=True) as pbar:
             for x, img_filename in pbar:
                 x = x.to(device)
                 with torch.no_grad():  # No gradient computation needed for inference
@@ -74,8 +74,8 @@ def main(args):
         df_results.to_csv(output_csv_path, index=False, header=False)
 
         print(f'{checkpoint_path} to {output_csv_path}')
-    for path in list_out:
-        dfs = [pd.read_csv(file, header=None, names=['filename', 'prediction']) for file in csv_files]
+    
+    dfs = [pd.read_csv(file, header=None, names=['filename', 'prediction']) for file in list_out]
 
     # Merge all DataFrames on the 'filename' column
     merged_df = dfs[0]
