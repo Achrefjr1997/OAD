@@ -10,7 +10,7 @@ The goal of this project was to accurately estimate Aerosol Optical Depth (AOD) 
 These measurements aid in advancing environmental monitoring methodologies, with applications in air quality assessment and climate research.
 
 ## Dataset
-#The dataset consists of:
+# The dataset consists of:
 
 Sentinel-2 Images: 13 spectral bands (B1 to B12, including B8A), processed to mask clouds and covering the period from January 1, 2016, to May 1, 2024.
 AERONET Dataset: Provides AOD measurements from various global locations, processed using the Angstrom interpolation to estimate AOD at 550nm from measurements at 500nm and 675nm.
@@ -53,3 +53,6 @@ AERONET Dataset: Provides AOD measurements from various global locations, proces
 ## Acknowledgments
 
 This project was part of the Solafune AOD Estimation Challenge. Many thanks to the organizers, Solafune, Inc., for facilitating this opportunity.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE)  file for details.
