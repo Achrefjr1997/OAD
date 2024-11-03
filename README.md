@@ -17,14 +17,13 @@ AERONET Dataset: Provides AOD measurements from various global locations, proces
 
 ## Problem Significance
 # AOD estimation is critical for:
-
-    1.Public Health: Monitoring air quality and pollution levels.
-    2.Climate Research: Understanding the role of aerosols in climate change.
-    3.Weather Forecasting: Improving the accuracy of meteorological predictions.
+1.Public Health: Monitoring air quality and pollution levels.
+2.Climate Research: Understanding the role of aerosols in climate change.
+3.Weather Forecasting: Improving the accuracy of meteorological predictions.
     
 ## Results
-    1.Final Standing: 3rd Place
-    2.Accuracy: Achieved a high accuracy of 0.9894 in AOD estimation.
+1.Final Standing: 3rd Place
+2.Accuracy: Achieved a high accuracy of 0.9894 in AOD estimation.
     
 | results |
 |------------------|
