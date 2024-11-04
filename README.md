@@ -14,7 +14,7 @@ These measurements aid in advancing environmental monitoring methodologies, with
 **Sentinel-2 Images**: 13 spectral bands (B1 to B12, including B8A), processed to mask clouds and covering the period from January 1, 2016, to May 1, 2024.
 **AERONET Dataset**: Provides AOD measurements from various global locations, processed using the Angstrom interpolation to estimate AOD at 550nm from measurements at 500nm and 675nm.
 
-# Problem Significance
+
 ## AOD estimation is critical for:
 
 1. ***Public Health**: Monitoring air quality and pollution levels.*
@@ -53,5 +53,5 @@ These measurements aid in advancing environmental monitoring methodologies, with
 
 This project was part of the Solafune AOD Estimation Challenge. Many thanks to the organizers, **Solafune, Inc.**, for facilitating this opportunity.
 
-# License
+## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE)  file for details.
