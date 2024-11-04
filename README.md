@@ -33,20 +33,20 @@ AERONET Dataset: Provides AOD measurements from various global locations, proces
 
 # Getting Started
 
-1.Clone the repository:
+1.*Clone the repository:*
 
     !https://github.com/Achrefjr1997/OAD.git
     %cd OAD
     
-2.Install dependencies:
+2.*Install dependencies:*
 
     !pip install -r requirements.txt
     
-3.Download, prepare and training model:
+3.*Download, prepare and training model:*
 
      !python train.py 
             
-4.Generate submission:
+4.*Generate submission:*
 
      !python predict.py 
 
