@@ -9,7 +9,6 @@ public health, and climate change.
 The goal of this project was to accurately estimate Aerosol Optical Depth (AOD) using the Sentinel-2 satellite images with **13 spectral bands**. 
 These measurements aid in advancing environmental monitoring methodologies, with applications in **air quality** assessment and **climate** research.
 
-# Dataset
 ## The dataset consists of:
 
 **Sentinel-2 Images**: 13 spectral bands (B1 to B12, including B8A), processed to mask clouds and covering the period from January 1, 2016, to May 1, 2024.
@@ -22,7 +21,7 @@ These measurements aid in advancing environmental monitoring methodologies, with
 2. ***Climate Research**: Understanding the role of aerosols in climate change.*
 3. ***Weather Forecasting**: Improving the accuracy of meteorological predictions.*
     
-# Results
+## Results
 1. *Final Standing: **3rd Place**.*
 2. *Accuracy: Achieved a high accuracy of **0.9894** in AOD estimation.*
     
@@ -31,7 +30,7 @@ These measurements aid in advancing environmental monitoring methodologies, with
 |![results](assets/assets1.png) |
 |![results](assets/assets2.png) |
 
-# Getting Started
+## Getting Started
 
 1.***Clone the repository:***
 
@@ -50,7 +49,7 @@ These measurements aid in advancing environmental monitoring methodologies, with
 
      !python predict.py 
 
-# Acknowledgments
+## Acknowledgments
 
 This project was part of the Solafune AOD Estimation Challenge. Many thanks to the organizers, **Solafune, Inc.**, for facilitating this opportunity.
 
