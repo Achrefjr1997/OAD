@@ -38,7 +38,7 @@ These measurements aid in advancing environmental monitoring methodologies, with
     !git clone https://github.com/Achrefjr1997/OAD.git
     %cd OAD
     
-2.* **Install dependencies:** *
+2.***Install dependencies:***
 
     !pip install -r requirements.txt
     
