@@ -33,20 +33,20 @@ These measurements aid in advancing environmental monitoring methodologies, with
 
 # Getting Started
 
-1.*Clone the repository:*
+1.* **Clone the repository:** *
 
     !git clone https://github.com/Achrefjr1997/OAD.git
     %cd OAD
     
-2.*Install dependencies:*
+2.* **Install dependencies:** *
 
     !pip install -r requirements.txt
     
-3.*Download, prepare and training model:*
+3.* **Download, prepare and training model:** *
 
      !python train.py 
             
-4.*Generate submission:*
+4.* **Generate submission:** *
 
      !python predict.py 
 
