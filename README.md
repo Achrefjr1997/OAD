@@ -1,7 +1,7 @@
 # Aerosol Optical Depth Estimation - Solafune Challenge (3rd Place Solution)
 
-This repository contains the code and documentation for my third-place solution in the **Aerosol Optical Depth** (AOD) Estimation Challenge organized by **Solafune**,
-Inc. The challenge involved estimating aerosol optical depth from **Sentinel-2 multispectral images**, a crucial metric for understanding air quality, 
+This repository contains the code and documentation for my third-place solution in the **Aerosol Optical Depth** (AOD) Estimation Challenge organized by **Solafune,
+Inc**. The challenge involved estimating aerosol optical depth from **Sentinel-2 multispectral images**, a crucial metric for understanding air quality, 
 public health, and climate change.
 
 ## Overview
