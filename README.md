@@ -22,7 +22,7 @@ These measurements aid in advancing environmental monitoring methodologies, with
 3. ***Weather Forecasting**: Improving the accuracy of meteorological predictions.*
     
 ## Results
-1. *Final Standing: **3rd Place**.*
+1. *Final Standing: **[3rd Place](https://solafune.com/competitions/ca6ee401-eba9-4f7d-95e6-d1b378a17200?menu=lb&tab=private)**.*
 2. *Accuracy: Achieved a high accuracy of **0.9894** in AOD estimation.*
     
 | results |
