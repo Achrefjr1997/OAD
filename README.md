@@ -23,8 +23,8 @@ AERONET Dataset: Provides AOD measurements from various global locations, proces
 3. *Weather Forecasting: Improving the accuracy of meteorological predictions.*
     
 # Results
-    1.Final Standing: 3rd Place
-    2.Accuracy: Achieved a high accuracy of 0.9894 in AOD estimation.
+1.*Final Standing: 3rd Place.*
+2.*Accuracy: Achieved a high accuracy of 0.9894 in AOD estimation.*
     
 | results |
 |------------------|
