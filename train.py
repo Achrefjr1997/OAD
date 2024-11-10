@@ -45,7 +45,7 @@ def main(args):
     lr=args.lr
     WD = 1e-2
     print(f"Preparing data with ACP3C={usePCA}, include_index={useIndexes} ..........................")
-    # prepare_data.prepare_data(ACP3C=False, include_index=False)
+    prepare_data.prepare_data(ACP3C=False, include_index=False)
     print(f"data prepared" )
 
     os.makedirs(output, exist_ok=True)
