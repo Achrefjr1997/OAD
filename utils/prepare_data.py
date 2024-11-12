@@ -94,20 +94,22 @@ def prepare_data(ACP3C=False, include_index=False):
     # Save the training answers with the same format
     train_answers.to_csv('Processed/train_answer.csv', index=False)
 
-def normalize_sentinel2_image(tiff_file_path):
+def normalize_sentinel2_image(tiff_file_path, gamma=1.2):
     """
-    Normalize Sentinel-2 multi-band TIFF image from 16-bit to 8-bit.
+    Apply gamma correction to Sentinel-2 multi-band TIFF image.
 
     Parameters:
         tiff_file_path (str): Path to the input TIFF file.
-        output_file_path (str): Path to save the normalized 8-bit TIFF file.
-    """
-    image_data=tiff.imread(tiff_file_path)
+        gamma (float): Gamma value for correction. Default is 1.0 (no correction).
 
-    # Normalize the remaining channels (B05, B06, B07, B08, B11, B12)
-    for i in range(0, 4):  # For B05 to B12
-        image_data[i] = image_data[i]* 1100 / (255*255)
-    for i in range(4, 13):  # For B05 to B12
-        image_data[i] = image_data[i]* 8160 / (255*255)  # Divide by 8160
-    image_data = np.clip(image_data, 0, 1)
+    Returns:
+        image_data (np.ndarray): Gamma-corrected image data.
+    """
+    # Load TIFF image
+    image_data = tiff.imread(tiff_file_path)
+    # Gamma correction
+    image_data = image_data.astype(np.float32)  # Ensure float for calculations
+    image_data = image_data / image_data.max()  # Normalize to [0, 1] for gamma correction
+    image_data = np.power(image_data, gamma)  # Apply gamma correction
+    
     return image_data
