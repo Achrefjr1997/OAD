@@ -107,9 +107,5 @@ def normalize_sentinel2_image(tiff_file_path, gamma=1.2):
     """
     # Load TIFF image
     image_data = tiff.imread(tiff_file_path)
-    # Gamma correction
-    image_data = image_data.astype(np.float32)  # Ensure float for calculations
-    image_data = image_data / image_data.max()  # Normalize to [0, 1] for gamma correction
-    image_data = np.power(image_data, gamma)  # Apply gamma correction
     
     return image_data
