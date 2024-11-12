@@ -43,6 +43,7 @@ def main(args):
     output=args.output
     earlystop=args.earlystop
     lr=args.lr
+    print(args)
     WD = 1e-2
     print(f"Preparing data with ACP3C={usePCA}, include_index={useIndexes} ..........................")
     prepare_data.prepare_data(ACP3C=False, include_index=False)
